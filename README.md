@@ -17,6 +17,8 @@
 - JWT для авторизации
 - bcrypt для хэширования паролей
 
+## Использование
+
 1. Создать файл .env в корне проекта и заполнить:
 -DB_HOST=хост бд
 -DB_USER=пользователь бд
@@ -28,20 +30,32 @@
 2. Примеры запросов
 
 #Регистрация
+POST
 URL: http://localhost:5000/users/registration
 Тело запроса: {"fullName": "Тестовый Тест Тестович", "dateOfBirth": "2001.01.01", "email": "11@yandex.ru", "password": "123", "role": "admin"}
 
 #Аутентификация 
+POST
 URL: http://localhost:5000/users/authorization
 Тело запроса: {"email": "withotRole@gmail.com","password":"1234"}
 - Сервер возвразает jwt токен
 
-#Получение пользователя  
-URL: http://localhost:5000/users/5
+#Получение пользователя
+GET
+URL: http://localhost:5000/users/:id
 В заголовок  Authorization передавать Bearer <jwt_token>
 -Админ может выполнять поиск любого id, пользователь - сам себя
 
-
 #Получение всех пользоватей (Только для админа)
+GET
 URL: http://localhost:5000/users
 В заголовок  Authorization передавать Bearer <jwt_token>
+
+#Блокировка пользователя (Только для админа)
+PATCH
+URL: http://localhost:5000/users/:id/ban
+В заголовок  Authorization передавать Bearer <jwt_token>
+
+## Тестовые данные к БД
+
+- Запуск скрипта fillDb в папке test (Вносит несколько записей пользователей из usersSeed)
