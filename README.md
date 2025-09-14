@@ -33,7 +33,7 @@ DB_PORT=порт_бд
 JWT_SECRET=секретный_ключ
 ```
 ## Примеры запросов
--Регистрация пользователя
+- Регистрация пользователя
 `POST http://localhost:5000/users/registration`
 Body (JSON):
 
@@ -46,3 +46,56 @@ Body (JSON):
   "role": "admin"
 }
 ```
+
+- Аутентификация
+`POST http://localhost:5000/users/authorization`
+Body (JSON):
+
+```
+{
+  "email": "withotRole@gmail.com",
+  "password": "1234"
+}
+```
+В ответ сервер вернёт JWT токен.
+
+- Получение пользователя по ID
+`GET http://localhost:5000/users/:id`
+Headers:
+```
+Authorization: Bearer <jwt_token>
+```
+Админ может получить данные любого пользователя
+Пользователь может получить только свои данные
+
+- Получение всех пользователей (только админ)
+`GET http://localhost:5000/users`
+Headers:
+```
+Authorization: Bearer <jwt_token>
+```
+
+- Блокировка пользователя
+`PATCH http://localhost:5000/users/:id/ban`
+Headers:
+```
+Authorization: Bearer <jwt_token>
+```
+Админ может блокировать любого пользователя
+Пользователь может блокировать только себя
+
+---
+
+## Тестовые данные
+Для наполнения базы тестовыми пользователями выполните скрипт:
+`node test/fillDb.js`
+Данные берутся из usersSeed
+
+---
+
+## Запуск проекта
+1. Установить зависимости:
+ ``` npm install```
+2. Запустить сервер:
+ ``` npm start```
+
