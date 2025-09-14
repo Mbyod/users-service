@@ -35,6 +35,7 @@ JWT_SECRET=секретный_ключ
 ## Примеры запросов
 - Регистрация пользователя
 `POST http://localhost:5000/users/registration`
+
 Body (JSON):
 
 ```
@@ -49,6 +50,7 @@ Body (JSON):
 
 - Аутентификация
 `POST http://localhost:5000/users/authorization`
+
 Body (JSON):
 
 ```
@@ -61,6 +63,7 @@ Body (JSON):
 
 - Получение пользователя по ID
 `GET http://localhost:5000/users/:id`
+
 Headers:
 ```
 Authorization: Bearer <jwt_token>
@@ -70,6 +73,7 @@ Authorization: Bearer <jwt_token>
 
 - Получение всех пользователей (только админ)
 `GET http://localhost:5000/users`
+
 Headers:
 ```
 Authorization: Bearer <jwt_token>
@@ -77,6 +81,7 @@ Authorization: Bearer <jwt_token>
 
 - Блокировка пользователя
 `PATCH http://localhost:5000/users/:id/ban`
+
 Headers:
 ```
 Authorization: Bearer <jwt_token>
