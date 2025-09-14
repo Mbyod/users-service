@@ -100,7 +100,7 @@ Authorization: Bearer <jwt_token>
 
 ## Запуск проекта
 1. Установить зависимости:
- ``` npm install```
+ ```npm install```
 2. Запустить сервер:
- ``` npm start```
+ ```npm start```
 
