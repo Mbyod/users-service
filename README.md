@@ -32,15 +32,17 @@ DB_NAME=имя_бд
 DB_PORT=порт_бд
 JWT_SECRET=секретный_ключ
 ```
-##Примеры запросов
+## Примеры запросов
 -Регистрация пользователя
-`POST http://localhost:5000/users/registration
+`POST http://localhost:5000/users/registration`
 Body (JSON):
-`
-```{
+
+```
+{
   "fullName": "Тестовый Тест Тестович",
   "dateOfBirth": "2001.01.01",
   "email": "11@yandex.ru",
   "password": "123",
   "role": "admin"
-} ```
+}
+```
