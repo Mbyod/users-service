@@ -29,9 +29,9 @@
 
 2. Примеры запросов
 
-###Регистрация
-POST
-URL: http://localhost:5000/users/registration
+-Регистрация
+`POST`
+URL: `http://localhost:5000/users/registration`
 Тело запроса: {"fullName": "Тестовый Тест Тестович", "dateOfBirth": "2001.01.01", "email": "11@yandex.ru", "password": "123", "role": "admin"}
 
 ###Аутентификация 
